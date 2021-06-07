@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstring> // memmove
 #include <sstream>
 
 int main(int argc, char* argv[]){
@@ -14,7 +15,7 @@ int main(int argc, char* argv[]){
 	
 	printf("int to bool: %d\n", (bool)i);
 	
-	printf("int to char: %c\n", (char)i);
+	printf("int to char: %c\n", (char)i); // Note '' is for char, "" is for string
 	
 	// float to string
 	// Easy way: std::to_string() 

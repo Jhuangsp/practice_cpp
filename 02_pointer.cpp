@@ -3,7 +3,7 @@
 
 int main(int argc, char* argv[]){
 	
-	char arr[6] = "54321"; // char array and with \0
+	char arr[6] = "54321"; // char array end with \0
 	std::cout << "Value arr: " << arr << " at " << &arr << std::endl;
 	printf("\n");
 	
@@ -18,7 +18,7 @@ int main(int argc, char* argv[]){
 	
 	// About the varibale between Array and Pointer
 	std::cout << "size of arr is " << sizeof(arr)  << " (actual array size)" << std::endl; // length of char(byte)
-	std::cout << "size of parr is " << sizeof(parr) << " (pointer size)" << std::endl; // 8 byte(pointer position)
+	std::cout << "size of parr is " << sizeof(parr) << " (pointer size)" << std::endl; // 8 byte(pointer position) there is no way to check the length of array by pointer
 	printf("\n");
 	
 	// About address
@@ -28,9 +28,12 @@ int main(int argc, char* argv[]){
 	std::cout << "Address where parr points to: " << (void *)parr << std::endl; // address that the pointer points to
 	std::cout << "Find the parr's address and access the value (parr's address) then cout the value -> same as: cout << parr: " << (void *)*&parr << std::endl; // same as: cout << parr
 	printf("Printf address w/ %%p and w/o (void *) : %p\n", parr);
+	printf("\n");
 	
-	std::cout << "location arr[]: " << arr[1] << std::endl;
-	std::cout << "location arr*: " << *parr << std::endl;
+	// Add pointer == Indexing
+	std::cout << "Value at *(parr+0): " << *(parr+0) << std::endl;
+	std::cout << "Value at *(parr+1): " << *(parr+1) << std::endl;
+	std::cout << "Value at *(parr+2): " << *(parr+2) << std::endl;
 	
 	
 	return 0;
