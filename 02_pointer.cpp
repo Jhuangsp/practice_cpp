@@ -34,7 +34,17 @@ int main(int argc, char* argv[]){
 	std::cout << "Value at *(parr+0): " << *(parr+0) << std::endl;
 	std::cout << "Value at *(parr+1): " << *(parr+1) << std::endl;
 	std::cout << "Value at *(parr+2): " << *(parr+2) << std::endl;
+	printf("\n");
 	
+	char* parr2;
+	parr2 = parr;
+	std::cout << "Array that *parr2 points to: " << parr2 << std::endl;
+	std::cout << "Address of parr2 itself: " << &parr2 << std::endl; // address of pointer not address of data
+	std::cout << "Scalar that *parr2 points to: " << *parr2 << std::endl; // scalar value that the pointer points to
+	std::cout << "Address where parr2 points to: " << (void *)parr2 << std::endl; // address that the pointer points to
+	std::cout << "Find the parr2's address and access the value (parr2's address) then cout the value -> same as: cout << parr2: " << (void *)*&parr2 << std::endl; // same as: cout << parr2
+	printf("Printf address w/ %%p and w/o (void *) : %p\n", parr2);
+	printf("\n");
 	
 	return 0;
 }
