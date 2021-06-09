@@ -9,6 +9,10 @@ int main(int argc, char* argv[]){
 	int iarr2[6] = {1,2,3,4,5,6};
 	int iarr3[6] = {0};
 	char carr[6] = "54321"; // end with \0
+	
+	for(int *i = std::begin(iarr1); i < std::end(iarr1); i++) // begin()/end() return the address
+		std::cout << *i << " ";
+	std::cout << std::endl;
     
     char *pcarr = carr;
     delete pcarr; // wrong usage: pcarr is stack frame
@@ -20,21 +24,17 @@ int main(int argc, char* argv[]){
     d_iarr[0] = 'a';
     d_iarr[1] = 'b';
     d_iarr[2] = 'c';
-    printf("C++ dynamic array %s with size: %d\n", d_iarr, _msize( d_iarr ));
+    printf("C++ dynamic array %s with size: %d\n\n", d_iarr, _msize( d_iarr ));
     delete [] d_iarr; // delete array
     // delete scalar; // delete scalar
     d_iarr = NULL;
-
-    std::cout << std::endl;
 
     // C style
     d_iarr = (char*)malloc(3*sizeof(char)); // cast the void* to char*
     d_iarr[0] = 'd';
     d_iarr[1] = 'e';
     d_iarr[2] = 'f';
-    printf("C dynamic %s with size: %d\n", d_iarr, _msize( d_iarr ));
-    
-    std::cout << std::endl;
+    printf("C dynamic %s with size: %d\n\n", d_iarr, _msize( d_iarr ));
 
     char *new_d_iarr = (char *)realloc(d_iarr, 6*sizeof(char)); // copy and add more spaces
     new_d_iarr[3] = 'g';
@@ -44,12 +44,10 @@ int main(int argc, char* argv[]){
     std::cout << "Size of d_iarr: " << _msize( d_iarr ) << " at " << (void*)d_iarr << std::endl;
     std::cout << "Size of new_d_iarr: " << _msize( new_d_iarr ) << " at " << (void*)new_d_iarr << std::endl;
     std::cout << new_d_iarr << std::endl;
-    printf("Reallocated array %s with size: %d\n", new_d_iarr, _msize( new_d_iarr ));
+    printf("Reallocated array %s with size: %d\n\n", new_d_iarr, _msize( new_d_iarr ));
     free(new_d_iarr);
     d_iarr = NULL; // you should remove old pointer after realloc
     new_d_iarr = NULL;
-
-    std::cout << std::endl;
 
     // Vector
     int tmp[] = {5,4,3,2,1};
@@ -70,8 +68,7 @@ int main(int argc, char* argv[]){
     std::cout << "capacity of second: " << second.capacity() << std::endl;
     second.reserve(20);
     std::cout << "lengh of second (after reserve): " << second.size() << std::endl;
-    std::cout << "capacity of second (after reserve): " << second.capacity() << std::endl;
-    std::cout << std::endl;
+    std::cout << "capacity of second (after reserve): " << second.capacity() << std::endl << std::endl;
     
     std::cout << "iterate through fourth with begin() and end(): " << std::endl;
     for(std::vector<int>::iterator i=fourth.begin(); i!=fourth.end(); i++)
@@ -133,6 +130,8 @@ int main(int argc, char* argv[]){
     std::cout << d_iarr33[0][0] << " " << d_iarr33[0][1] << " " << d_iarr33[0][2] << std::endl;
     std::cout << d_iarr33[1][0] << " " << d_iarr33[1][1] << " " << d_iarr33[1][2] << std::endl;
     std::cout << d_iarr33[2][0] << " " << d_iarr33[2][1] << " " << d_iarr33[2][2] << std::endl;
+	std::cout << std::endl;
+	
     delete [] d_iarr33[0];
     delete [] d_iarr33[1];
     delete [] d_iarr33[2];

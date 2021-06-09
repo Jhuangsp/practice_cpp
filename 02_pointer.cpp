@@ -4,16 +4,23 @@
 int main(int argc, char* argv[]){
 	
 	char arr[6] = "54321"; // char array end with \0
+	char a = 'A';
 	std::cout << "Value arr: " << arr << " at " << &arr << std::endl;
 	printf("\n");
+	printf("Char a: %c at %p, while cout: with &a %s\n", a, &a, &a);
 	
-	// There are 2 ways to assign pointer
+	char *parr, *pa;
+	// There are 2 ways to assign pointer to Array
 	// 1. assign while init
-	char* parr = arr; // pointer for char array
+	parr = arr;
 	std::cout << "Assign with array: " << parr << std::endl;
 	// 2. assign after init with address
-	parr = &arr[0]; // note: the var to be & should be scalar
+	parr = &arr[0]; // note: the var to be & should be """scalar of address""" (&arr is char*[6] not char*)
 	std::cout << "Assign with address of first element of array: " << parr << std::endl;
+	
+	// There is only one way to assign pointer to Scalar
+	pa = &a;
+	printf("Pointer pa: %c at %p, pointing at %p vs (void*)%p\n", *pa, &pa, pa, (void*)pa);
 	printf("\n");
 	
 	// About the varibale between Array and Pointer
