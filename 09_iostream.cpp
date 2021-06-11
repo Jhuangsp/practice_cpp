@@ -1,8 +1,23 @@
 #include <iostream> 
-#include <iomanip> 
+#include <iomanip> // formater
 using namespace std; 
 
 int main() {
+	cout << "Hello world!!";	// "cout" (stand output stream) is an ostream object in iostream, using "<<" to put string into ostream
+	cout << endl;				// "endl" will give newline and "clear" the buffer
+	cerr << "Hello Taiwan!!";	// "cerr" (stand error) is an ostream object in iostream, msg will not be redirected
+	cerr << endl;
+	/*
+	In terminal (stand output stream), ">>" redirect the "stand output stream" into file
+	ie. $ ./main.o >> result.txt
+	will write "Hello world into result.txt", but the "Hello Taiwan!!" will leaved on terminal.
+	*/
+	int number;
+	cin >> number;				// "cin" (standard input) is an istream object in iostream
+	cout << number << endl;
+	
+	
+	// output formater
     cout << "number 50" << endl
          << " in oct " << oct << 50 << endl
          << " in hex " << hex << 50 << endl << endl;

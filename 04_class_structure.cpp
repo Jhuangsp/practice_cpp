@@ -10,6 +10,9 @@ public: // can be accessed at anywhere, can be inherited
 	string name;
 	myclass *next;
 	
+	static string type; 					// all object share this memeber
+	constexpr static float pi = 3.1415926;	// all object share this member, and init in class defination
+	
 	myclass();
 	myclass(int, string);
 	void setsecret(int);
@@ -45,6 +48,9 @@ void myclass::setnext(myclass* next){
 	this->next = next;
 };
 
+// Static member
+string myclass::type = "Testing Class";
+
 // Public inherite -> can access public & protected member, then put them into public and protected respectivly
 // Protected inherite -> can access public & protected member, then put them all into protected
 // Private inherite -> can access public & protected member, then put them all into private
@@ -68,6 +74,10 @@ int main(int argc, char* argv[]){
 	cout << cls1.name << endl;
 	cout << cls1.getsecret() << endl;
 	// cout << cls1.sectret << endl; //[Error] 'class myclass' has no member named 'sectret'
+	
+	// static member
+	cout << "static member pi in cls0: " << cls0.pi; // << " at " << &cls0::pi << endl; // wrong usage: static pi isn't belong to cls0 object, but class myclass
+	cout << "static member pi in cls1: " << cls1.pi; // << " at " << &cls1::pi << endl;
 	cout << endl;
 	
 	// Pointer, access with "->"
