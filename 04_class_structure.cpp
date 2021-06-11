@@ -11,10 +11,10 @@ public: // can be accessed at anywhere, can be inherited
 	myclass *next;
 	
 	myclass();
-	myclass(int id, string name);
-	void setsecret(int num);
+	myclass(int, string);
+	void setsecret(int);
 	int getsecret();
-	void setnext(myclass* next);
+	void setnext(myclass*);
 	
 private: // can't be seen outside this object, ether inherited
 	int secret;
